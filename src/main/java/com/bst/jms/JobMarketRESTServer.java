@@ -1,4 +1,4 @@
-package com.bst.JobMarketRESTServer;
+package com.bst.jms;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,6 +1,6 @@
-package com.bst.JobMarketRESTServer.repository;
+package com.bst.jms.repository;
 
-import com.bst.JobMarketRESTServer.model.JobPost;
+import com.bst.jms.model.JobPost;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 

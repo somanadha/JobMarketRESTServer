@@ -1,6 +1,6 @@
-package com.bst.JobMarketRESTServer.aspect;
+package com.bst.jms.aspect;
 
-import com.bst.JobMarketRESTServer.model.JobPost;
+import com.bst.jms.model.JobPost;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -14,7 +14,7 @@ public class ValidationAspect {
     private static final Logger logger = LoggerFactory.getLogger(ValidationAspect.class);
 
     // Return_Type Class_Name.Method_Name(Arguments)
-    @Around("execution(* com.bst.JobMarketRESTServer.service.JobPostService.saveJobPost(..)) && args(jobPost)")
+    @Around("execution(* com.bst.jms.service.JobPostService.saveJobPost(..)) && args(jobPost)")
     public Object saveJobPost_ValidateArgument(ProceedingJoinPoint jointPoint, JobPost jobPost) throws Throwable {
 
         logger.info("JobPost Parameters Before Entering Into: "+

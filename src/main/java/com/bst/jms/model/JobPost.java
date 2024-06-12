@@ -1,4 +1,4 @@
-package com.bst.JobMarketRESTServer.model;
+package com.bst.jms.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

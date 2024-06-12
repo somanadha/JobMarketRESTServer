@@ -1,7 +1,7 @@
-package com.bst.JobMarketRESTServer.service;
+package com.bst.jms.service;
 
-import com.bst.JobMarketRESTServer.model.JobPost;
-import com.bst.JobMarketRESTServer.repository.JobPostRepository;
+import com.bst.jms.model.JobPost;
+import com.bst.jms.repository.JobPostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;

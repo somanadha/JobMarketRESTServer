@@ -1,7 +1,7 @@
-package com.bst.JobMarketRESTServer.controller;
+package com.bst.jms.controller;
 
-import com.bst.JobMarketRESTServer.model.JobPost;
-import com.bst.JobMarketRESTServer.service.JobPostService;
+import com.bst.jms.model.JobPost;
+import com.bst.jms.service.JobPostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
