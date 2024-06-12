@@ -14,7 +14,7 @@ import java.util.ArrayList;
 @Component
 @Data
 @Entity
-public class JobPost {
+public class JMJobPost {
     @Id
     private int id;
     private String profile;
@@ -22,7 +22,7 @@ public class JobPost {
     private byte experience;
     private ArrayList<String> techStack;
 
-    public void update(JobPost jobPost) {
+    public void update(JMJobPost jobPost) {
         this.id = jobPost.id;
         this.profile = jobPost.profile;
         this.description = jobPost.description;

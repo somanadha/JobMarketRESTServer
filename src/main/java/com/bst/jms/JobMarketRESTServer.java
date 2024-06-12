@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class JobMarketRESTServer {
 
 	public static void main(String[] args) {
-		var context = SpringApplication.run(JobMarketRESTServer.class, args);
-		System.out.println("Hello World!");
+		SpringApplication.run(JobMarketRESTServer.class, args);
+		System.out.println("Hello World! Tomcat is running...");
 	}
 }

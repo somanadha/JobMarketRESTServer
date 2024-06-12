@@ -1,6 +1,6 @@
 package com.bst.jms.aspect;
 
-import com.bst.jms.model.JobPost;
+import com.bst.jms.model.JMJobPost;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -10,14 +10,14 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
-public class ValidationAspect {
-    private static final Logger logger = LoggerFactory.getLogger(ValidationAspect.class);
+public class JMValidationAspect {
+    private static final Logger logger = LoggerFactory.getLogger(JMValidationAspect.class);
 
     // Return_Type Class_Name.Method_Name(Arguments)
-    @Around("execution(* com.bst.jms.service.JobPostService.saveJobPost(..)) && args(jobPost)")
-    public Object saveJobPost_ValidateArgument(ProceedingJoinPoint jointPoint, JobPost jobPost) throws Throwable {
+    @Around("execution(* com.bst.jms.service.JMJobPostService.saveJobPost(..)) && args(jobPost)")
+    public Object saveJobPost_ValidateArgument(ProceedingJoinPoint jointPoint, JMJobPost jobPost) throws Throwable {
 
-        logger.info("JobPost Parameters Before Entering Into: "+
+        logger.info("JMJobPost Parameters Before Entering Into: "+
                 jointPoint.getSignature().getName() +": "+jobPost.toString());
 
         var jobPostObjctArray = new Object[] {jobPost};

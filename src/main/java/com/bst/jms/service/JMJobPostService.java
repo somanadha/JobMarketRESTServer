@@ -1,7 +1,7 @@
 package com.bst.jms.service;
 
-import com.bst.jms.model.JobPost;
-import com.bst.jms.repository.JobPostRepository;
+import com.bst.jms.model.JMJobPost;
+import com.bst.jms.repository.JMJobPostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
@@ -10,23 +10,23 @@ import java.util.List;
 
 @Service
 @Scope("singleton")
-public class JobPostService {
+public class JMJobPostService {
     @Autowired
-    private JobPostRepository repository;
+    private JMJobPostRepository repository;
 
-    public JobPost saveJobPost(JobPost jobPost) {
+    public JMJobPost saveJobPost(JMJobPost jobPost) {
         return repository.save(jobPost);
     }
 
-    public List<JobPost> getAllJobPosts() {
+    public List<JMJobPost> getAllJobPosts() {
         return repository.findAll();
     }
 
-    public JobPost getJobPost(int id) {
+    public JMJobPost getJobPost(int id) {
         return repository.findById(id).get();
     }
 
-    public JobPost updateJobPost(JobPost jobPost) {
+    public JMJobPost updateJobPost(JMJobPost jobPost) {
         return repository.save(jobPost);
     }
 
@@ -34,7 +34,7 @@ public class JobPostService {
         repository.deleteById(id);
     }
 
-    public Iterable<JobPost> getAllJobsByDescriptionKeyword(String descriptionKeyword) {
+    public Iterable<JMJobPost> getAllJobsByDescriptionKeyword(String descriptionKeyword) {
         return repository.findByDescriptionContaining(descriptionKeyword);
     }
 }

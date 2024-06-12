@@ -1,6 +1,6 @@
 package com.bst.jms.repository;
 
-import com.bst.jms.model.JobPost;
+import com.bst.jms.model.JMJobPost;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
@@ -9,20 +9,20 @@ import java.util.List;
 
 @Repository
 @Scope("singleton")
-public class JobPostRepositoryLocal {
-    private final List<JobPost> jobPostList = new ArrayList<>();
+public class JMJobPostRepositoryLocal {
+    private final List<JMJobPost> jobPostList = new ArrayList<>();
 
-    public void save(JobPost jobPost) {
+    public void save(JMJobPost jobPost) {
         jobPostList.add(jobPost);
     }
 
-    public List<JobPost> findAll() {
+    public List<JMJobPost> findAll() {
         return jobPostList;
     }
 
-    public JobPost find(int id) {
-        JobPost jobPost = null;
-        for (JobPost jp :  jobPostList) {
+    public JMJobPost find(int id) {
+        JMJobPost jobPost = null;
+        for (JMJobPost jp :  jobPostList) {
             if (jp.getId() == id) {
                 jobPost = jp;
                 break;
@@ -31,8 +31,8 @@ public class JobPostRepositoryLocal {
         return jobPost;
     }
 
-    public JobPost update(JobPost jobPost) {
-        JobPost jp = null;
+    public JMJobPost update(JMJobPost jobPost) {
+        JMJobPost jp = null;
         if (jobPost != null) {
             jp = find(jobPost.getId());
             if (jp != null) {
@@ -42,9 +42,9 @@ public class JobPostRepositoryLocal {
         return jp;
     }
 
-    public JobPost delete(int id) {
-        JobPost jobPost = null;
-        for (JobPost jp :  jobPostList) {
+    public JMJobPost delete(int id) {
+        JMJobPost jobPost = null;
+        for (JMJobPost jp :  jobPostList) {
             if (jp.getId() == id) {
                 jobPost = jp;
                 break;

@@ -8,31 +8,31 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
-public class LoggingAspect {
+public class JMLoggingAspect {
 
-    private static final Logger logger = LoggerFactory.getLogger(LoggingAspect.class);
+    private static final Logger logger = LoggerFactory.getLogger(JMLoggingAspect.class);
 
     // Return_Type Class_Name.Method_Name(Arguments)
-    @Before("execution(* com.bst.jms.service.JobPostService.*(..)) || execution(* com.bst.jms.repository.JobPostRepository.*(..))")
+    @Before("execution(* com.bst.jms.service.JMJobPostService.*(..)) || execution(* com.bst.jms.repository.JMJobPostRepository.*(..))")
     public void logBefore(JoinPoint jointPoint) {
         logger.info("Before Entering: " + jointPoint.getSignature().getName());
     }
 
 
     // Return_Type Class_Name.Method_Name(Arguments)
-    @AfterThrowing("execution(* com.bst.jms.service.JobPostService.*(..)) || execution(* com.bst.jms.repository.JobPostRepository.*(..))")
+    @AfterThrowing("execution(* com.bst.jms.service.JMJobPostService.*(..)) || execution(* com.bst.jms.repository.JMJobPostRepository.*(..))")
     public void logAfterThrowing(JoinPoint jointPoint) {
         logger.info("After Throwing From:" + jointPoint.getSignature().getName());
     }
 
     // Return_Type Class_Name.Method_Name(Arguments)
-    @AfterReturning("execution(* com.bst.jms.service.JobPostService.*(..)) || execution(* com.bst.jms.repository.JobPostRepository.*(..))")
+    @AfterReturning("execution(* com.bst.jms.service.JMJobPostService.*(..)) || execution(* com.bst.jms.repository.JMJobPostRepository.*(..))")
     public void logAfterReturning(JoinPoint jointPoint) {
         logger.info("While Returning From:" + jointPoint.getSignature().getName());
     }
 
     // Return_Type Class_Name.Method_Name(Arguments)
-    @After("execution(* com.bst.jms.service.JobPostService.*(..)) || execution(* com.bst.jms.repository.JobPostRepository.*(..))")
+    @After("execution(* com.bst.jms.service.JMJobPostService.*(..)) || execution(* com.bst.jms.repository.JMJobPostRepository.*(..))")
     public void logAfter(JoinPoint jointPoint) {
         logger.info("After Returning Successfully:" + jointPoint.getSignature().getName());
     }

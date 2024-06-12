@@ -9,11 +9,11 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
-public class PerformanceMonitoringAspect {
-    private static final Logger logger = LoggerFactory.getLogger(PerformanceMonitoringAspect.class);
+public class JMPerformanceMonitoringAspect {
+    private static final Logger logger = LoggerFactory.getLogger(JMPerformanceMonitoringAspect.class);
 
     // Return_Type Class_Name.Method_Name(Arguments)
-    @Around("execution(* com.bst.jms.repository.JobPostRepository.*(..))")
+    @Around("execution(* com.bst.jms.repository.JMJobPostRepository.*(..))")
     public Object logExecutionTime(ProceedingJoinPoint jointPoint) throws Throwable {
 
         long startTimeInMilli = System.currentTimeMillis();
