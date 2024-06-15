@@ -18,18 +18,17 @@ public class JMUserDetailsService implements UserDetailsService {
 
     public Iterable<JMUserDetails> findAll() {
         var usersList = repository.findAll();
-
         for(var jmud : usersList) {
             jmud.setPassword("*****");
         }
         return usersList;
     }
 
-    public JMUserDetails save(JMUserDetails user) {
-        System.out.println("Password Before Encryption:"+ user.getPassword());
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        System.out.println("Password After Encryption:"+ user.getPassword());
-        return repository.save(user);
+    public JMUserDetails save(JMUserDetails userDetails) {
+        System.out.println("Password Before Encryption:"+ userDetails.getPassword());
+        userDetails.setPassword(passwordEncoder.encode(userDetails.getPassword()));
+        System.out.println("Password After Encryption:"+ userDetails.getPassword());
+        return repository.save(userDetails);
     }
 
     @Override

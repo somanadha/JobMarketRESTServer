@@ -1,24 +1,25 @@
 package com.bst.jms.controller;
 
 import com.bst.jms.model.JMUserDetails;
+import com.bst.jms.service.JMSigningService;
 import com.bst.jms.service.JMUserDetailsService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "http://localhost:8081")
 @RestController
 public class JMUserDetailsController {
 
     @Autowired
-    private JMUserDetailsService userService;
+    private JMSigningService signingService;
+
+    @Autowired
+    private JMUserDetailsService userDetailsService;
 
     @GetMapping("about")
     public String aboutThisApp (HttpServletRequest request) {
-        return "Job Market Portal For All Your Job Needs: " +
-                request.getSession().getId();
+        return "Job Market Portal For All Your Job Needs";
     }
 
     @GetMapping("session")
@@ -28,11 +29,16 @@ public class JMUserDetailsController {
 
     @GetMapping("users")
     public Iterable<JMUserDetails> getAllUsers() {
-        return userService.findAll();
+        return userDetailsService.findAll();
     }
 
     @PostMapping("register")
     public JMUserDetails registerUser(@RequestBody JMUserDetails user){
-        return userService.save(user);
+        return userDetailsService.save(user);
+    }
+
+    @PostMapping("login")
+    public String loginUser(@RequestBody JMUserDetails userDetails){
+        return signingService.loginUser(userDetails);
     }
 }
