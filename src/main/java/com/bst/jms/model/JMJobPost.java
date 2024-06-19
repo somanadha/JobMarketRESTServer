@@ -21,12 +21,4 @@ public class JMJobPost {
     private String description;
     private byte experience;
     private ArrayList<String> techStack;
-
-    public void update(JMJobPost jobPost) {
-        this.id = jobPost.id;
-        this.profile = jobPost.profile;
-        this.description = jobPost.description;
-        this.experience = jobPost.experience;
-        this.techStack = jobPost.techStack;
-    }
 }
