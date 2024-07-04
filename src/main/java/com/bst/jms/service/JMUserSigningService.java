@@ -6,10 +6,9 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
-public class JMSigningService {
+public class JMUserSigningService {
 
     @Autowired
     JMJwtService jwtService;
@@ -17,7 +16,7 @@ public class JMSigningService {
     @Autowired
     private AuthenticationManager authenticationManager;
 
-    public String loginUser(JMUserDetails userDetails){
+    public String signIn(JMUserDetails userDetails){
         String message = "Login Failed";
         try {
             Authentication authentication = authenticationManager.authenticate(

@@ -14,21 +14,12 @@ public class JMUserDetailsService implements UserDetailsService {
     @Autowired
     private JMUserRepository repository;
 
-    private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(12);
-
     public Iterable<JMUserDetails> findAll() {
         var usersList = repository.findAll();
         for(var jmud : usersList) {
             jmud.setPassword("*****");
         }
         return usersList;
-    }
-
-    public JMUserDetails save(JMUserDetails userDetails) {
-        System.out.println("Password Before Encryption:"+ userDetails.getPassword());
-        userDetails.setPassword(passwordEncoder.encode(userDetails.getPassword()));
-        System.out.println("Password After Encryption:"+ userDetails.getPassword());
-        return repository.save(userDetails);
     }
 
     @Override
