@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-@Scope("singleton")
 public interface JMJobPostRepository extends JpaRepository<JMJobPost, Integer> {
 
     //@Query("select j from JMJobPost j where description")

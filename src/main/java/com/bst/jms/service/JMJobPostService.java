@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@Scope("singleton")
 public class JMJobPostService {
     @Autowired
     private JMJobPostRepository repository;

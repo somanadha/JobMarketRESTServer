@@ -1,5 +1,6 @@
 package com.bst.jms.config;
 
+import com.bst.jms.filter.JMJwtFilter;
 import com.bst.jms.service.JMUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -24,14 +25,14 @@ public class JMSecurityConfiguration {
     private JMUserDetailsService userDetailsService;
 
     @Autowired
-    private com.bst.jms.filter.JMJwtFilter jwtFilter;
+    private JMJwtFilter jwtFilter;
 
     @Bean
     public SecurityFilterChain getSecurityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return  httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> request
-                        .requestMatchers("register", "login").permitAll()
+                        .requestMatchers("register", "signIn").permitAll()
                         .anyRequest().authenticated())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)

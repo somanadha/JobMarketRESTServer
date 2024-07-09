@@ -4,6 +4,7 @@ import com.bst.jms.model.JMJobPost;
 import com.bst.jms.service.JMJobPostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 @CrossOrigin(origins = "http://localhost:8081")
 @RestController
 public class JMJobPostController {
