@@ -51,5 +51,4 @@ public class JMSecurityConfiguration {
     public AuthenticationManager getAuthenticationManger(AuthenticationConfiguration configuration) throws Exception {
         return configuration.getAuthenticationManager();
     }
-
 }
